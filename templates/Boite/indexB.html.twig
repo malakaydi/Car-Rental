@@ -1,0 +1,45 @@
+{# templates/marque/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}List of Brands{% endblock %}
+
+{% block body %}
+    
+    <div class="container mt-5" style="color: #E9B824; font-family: 'Georgia', 'Times New Roman', 'Palatino', serif;">
+        <h1 class="text-center mb-4" style="margin-top: 140px;">List of Gearbox</h1>
+    </div>
+
+
+
+
+    <div class="container mt-5 mb-4"> 
+        <div class="row justify-content-center" >
+            <div class="col-md-6">
+                <table class="table table-striped" style="color: #fff;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Gearbox</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for boite in boites %}
+                            <tr>
+                                <td>{{ boite.typeBoite }}</td>
+                                
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            background-color: #232323; 
+        }
+    </style>
+
+{% endblock %}

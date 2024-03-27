@@ -1,0 +1,93 @@
+{# templates/marque/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}List of Brands{% endblock %}
+
+{% block body %}
+    
+    <div class="container mt-5" style="color: #E9B824; font-family: 'Georgia', 'Times New Roman', 'Palatino', serif;">
+        <h1 class="text-center mb-4" style="margin-top: 140px;">List of Brands</h1>
+    </div>
+
+
+    <div class="container mt-5 mb-4"> 
+    <div class="row justify-content-center" >
+        <div class="col-md-6">
+            {{ form_start(form) }}
+            <div class="input-group mb-3">
+                {{ form_widget(form.nom, {'attr': {'class': 'form-control', 'placeholder': 'Search by Brand Name'}}) }}
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                        </svg>
+                        Research
+                    </button>
+                </div>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+</div>
+
+<div class="container regime-table mt-3">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+    
+        <div class="ml-auto"> <!-- Use ml-auto to push the button to the right -->
+            <a href="{{ path('new_marque') }}" class="btn btn-custom btn-lg"> <!-- Add a custom class -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-plus-circle" viewBox="0 0 16 16">
+                    <path
+                        d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"/>
+                    <path
+                        d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                </svg>
+                Create a New Brands
+            </a>
+        </div>
+    </div>
+</div>
+
+{% for flash_message in app.flashes('notice') %}
+<div class="container mt-3">
+        <div class="alert alert-success text-center" >
+            {{ flash_message }}
+        </div>
+        </div>
+    {% endfor %}
+
+
+    <div class="container mt-5 mb-4"> 
+        <div class="row justify-content-center" >
+            <div class="col-md-6">
+                <table class="table table-striped" style="color: #fff;">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Brand</th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for marque in marques %}
+                            <tr>
+                                <td>{{ marque.libellemarque }}</td>
+                            
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            background-color: #232323; 
+        }
+        .btn-custom {
+    background-color: #808080; 
+    color: #fff;}
+    </style>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Entretien{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center mb-4" style="color: #E9B824; font-family: 'Georgia', 'Times New Roman', 'Palatino', serif;">Add Entretien</h1>
+
+                {{ form_start(form) }}
+
+                <div class="form-group">
+                    {{ form_label(form.DateEntretien, 'Maintenance Date', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.DateEntretien, { 'attr': {'class': 'form-control datetimepicker-input', 'data-toggle': 'datetimepicker', 'data-target': '#entretienDate', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.DescriptionEntretien, 'Description', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.DescriptionEntretien, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.etat, 'Condition', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.etat, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.voiture, 'Vehicle', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.voiture, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <button type="submit" class="btn btn-secondary">Add</button>
+                {{ form_end(form) }}
+
+                <div class="form-group mt-3">
+                    <a href="{{ path('listeEntretien') }}" class="btn btn-secondary">Retour à la liste</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            background-color: #232323;
+            padding-top: 70px;
+            color: #fff;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize the Datepicker for Entretien Date
+            $('#entretienDate').datepicker({
+                format: 'yyyy-mm-dd',
+                autoclose: true,
+                todayHighlight: true
+            });
+        });
+    </script>
+{% endblock %}

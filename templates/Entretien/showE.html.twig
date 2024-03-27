@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Maintenance Details{% endblock %}
+
+{% block body %}
+    <div class="container maintenance-details" style="margin-top: 100px; display: flex; flex-direction: column; align-items: center;">
+        <h1 class="mb-4" style="color: #333; font-size: 28px;">Maintenance Details</h1>
+        
+        <div class="details mt-3">
+        
+            <p><span class="label">Date d'Entretien:</span> {{ entretien.DateEntretien|date('Y-m-d') }}</p>
+            <p><span class="label">Description d'Entretien:</span> {{ entretien.DescriptionEntretien }}</p>
+            <p><span class="label">État:</span> {% if entretien.etat == 'available' %}✅{% else %}❌{% endif %}</p>
+
+            {# Add the associated "Voiture" field here #}
+            {% if entretien.voiture is not null %}
+                <p><span class="label">Vehicle:</span> {{ entretien.voiture.Matricule }}</p>
+            {% endif %}
+        </div>
+        
+        <hr>
+
+        <a href="{{ path('listeEntretien') }}" class="btn btn-secondary">Retour à la liste</a>
+    </div>
+
+
+    <style>
+
+    body {
+        background-color: #232323; 
+    }
+        .maintenance-details {
+            background-color: #f8f9fa;
+            border: 1px solid #ced4da;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            overflow: hidden; /* Clear float containment */
+            text-align: center; /* Center the content */
+        }
+
+        .label {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            color: #fff;
+            border: 1px solid #6c757d;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+            border: 1px solid #5a6268;
+        }
+
+        /* Custom styles for image alignment */
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .details {
+            /* Add any additional styling for the details */
+        }
+    </style>
+{% endblock %}

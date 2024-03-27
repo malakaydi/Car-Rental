@@ -1,0 +1,58 @@
+{# templates/voiture/add.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Rental{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center mb-4" style="color: #E9B824; font-family: 'Georgia', 'Times New Roman', 'Palatino', serif;">Add Rental</h1>
+
+                {{ form_start(form) }}
+                
+                <div class="form-group">
+                    {{ form_label(form.startDate, 'Start Date', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.startDate, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.endDate, 'End Date', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.endDate, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.tarif, 'Price', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.tarif, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.client, 'Client', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.client, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.voiture, 'vehicle', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.voiture, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+
+                <button type="submit" class="btn btn-secondary">Add</button>
+                {{ form_end(form) }}
+
+                <div class="form-group mt-3">
+                    <a href="{{ path('listeLocation') }}" class="btn btn-secondary">Retour à la liste</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            background-color: #232323;
+            padding-top: 70px;
+            color: #fff;
+        }
+    </style>
+{% endblock %}

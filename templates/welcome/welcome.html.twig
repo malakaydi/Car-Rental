@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container rental-container" style="margin-top: 500px;">
+        <div class="container text-center">
+            <h1 class="display-4 text-primary car-rental-heading" style="font-family: 'Times New Roman', Times, serif;" >Explore the Open Road with Car Rental Service</h1>
+            <p class="lead" style="font-family: Garamond, serif;">Your Journey Begins Here...</p>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Featured Vehicles</h2>
+        <div class="row">
+            {% for voiture in voitures %}
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                    </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <style>
+        body {
+            background: url('{{ asset('image/2.gif') }}') no-repeat fixed center;
+            background-size: cover;
+            background-color: rgba(0, 0, 0, 0); /* Adjusted background color with opacity */
+            color: #E9B824; /* Adjusted text color to match the specified combination */
+            
+            margin: 0; /* Remove default margin */
+        }
+
+        .rental-container {
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .lead {
+            font-size: 1.5rem;
+            margin-top: 10px;
+        }
+
+        .car-rental-heading {
+            color: #E9B824 !important; /* Use !important to ensure the color is applied */
+        }
+
+        .text-muted {
+            font-style: italic;
+            color: #E9B824; /* Adjusted text color for better visibility on the quote container background */
+        }
+    </style>
+{% endblock %}

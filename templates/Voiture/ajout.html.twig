@@ -1,0 +1,71 @@
+{# templates/voiture/add.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Add Vehicle{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <h1 class="text-center mb-4" style="color: #E9B824; font-family: 'Georgia', 'Times New Roman', 'Palatino', serif;">Add Vehicle</h1>
+
+                {{ form_start(form) }}
+                
+                <div class="form-group">
+                    {{ form_label(form.Matricule, 'Matricule', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.Matricule, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.category, 'Category', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.category, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.nbrePlace, 'Number of Seats', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.nbrePlace, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.couleur, 'Color', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.couleur, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.etat, 'Condition', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.etat, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.marque, 'Brand', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.marque, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <div class="form-group">
+                    {{ form_label(form.boite, 'Gearbox', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.boite, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+                <div class="form-group">
+                    {{ form_label(form.image, 'Image of the car', {'label_attr': {'style': 'color: #fff;'}}) }}
+                    {{ form_widget(form.image, { 'attr': {'class': 'form-control', 'style': 'background-color: #2d2d2d; color: #fff;'} }) }}
+                </div>
+
+                <button type="submit" class="btn btn-secondary">Add</button>
+                {{ form_end(form) }}
+
+                <div class="form-group mt-3">
+                    <a href="{{ path('listeVoiture') }}" class="btn btn-secondary">Retour à la liste</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            background-color: #232323;
+            padding-top: 70px;
+            color: #fff;
+        }
+    </style>
+{% endblock %}
